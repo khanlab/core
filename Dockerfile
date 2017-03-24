@@ -129,16 +129,16 @@ ENV MKL_NUM_THREADS=1 \
     OMP_NUM_THREADS=1
 
 # Installing dev requirements (packages that are not in pypi)
-WORKDIR /root/
-ADD requirements.txt requirements.txt
-RUN pip install -r requirements.txt && \
-    rm -rf ~/.cache/pip
+#WORKDIR /root/
+#ADD requirements.txt requirements.txt
+#RUN pip install -r requirements.txt && \
+#    rm -rf ~/.cache/pip
 
 # Installing FMRIPREP
-COPY . /root/src/fmriprep
-RUN cd /root/src/fmriprep && \
-    pip install .[all] && \
-    rm -rf ~/.cache/pip
+#COPY . /root/src/fmriprep
+#RUN cd /root/src/fmriprep && \
+#    pip install .[all] && \
+#    rm -rf ~/.cache/pip
 
 # Precaching atlases
 RUN mkdir /niworkflows_data
