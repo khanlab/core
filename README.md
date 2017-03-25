@@ -1,3 +1,36 @@
+from miykael/level4 (includes nipype FSL, AFNI, SPM12, ANTs & FreeSurfer)
+-nilearn
+-nibabel
+-octave - niak
+-dipy
+-camino
+-trackvis
+-itksnap
+-basic linux tools -
+-niftyreg
+<pull vasst-dev repo> ...
+
+
+dev
+from core:
+<new stuff>
+
+
+Slicer - find good example
+from core:
+-ITK, VTK
+-3D slicer
+
+
+from core:
+-matlab noddi
+-matlab dke
+
+
+from slicer:
+
+
+
 
 First - run XQuartz -> preferences, security -> allow connections from network clients, then run from a terminal:
 
