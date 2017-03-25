@@ -1,7 +1,6 @@
 
 To build core docker container: `docker build [path_to_dockerfile]`
 To show docker containers available on machine: `docker images`
->>>>>>> origin/master
 
 First run XQuartz -> preferences, security -> allow connections from network clients, then run from a terminal:
 ~~~~
