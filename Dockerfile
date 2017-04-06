@@ -32,4 +32,12 @@ RUN apt-get update && apt-get install -qy \
           make install && \
           ldconfig
 
-#docker build -t khanlab/niftyreg:0.1 --no-cache .
+# vasst-dev set-up
+
+ENV VASST_DEV_HOME=$INSTALL/vasst-dev
+RUN apt-get update && apt-get install -qy git && \
+git clone https://github.com/akhanf/vasst-dev.git ${INSTALL}/vasst-dev && \
+echo ". $VASST_DEV_HOME/init_vasst_dev.sh" >> /etc/bash.bashrc
+
+
+#docker build -t khanlab/core:0.1 --no-cache .
