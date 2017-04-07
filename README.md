@@ -1,6 +1,22 @@
+Docker containers and BIDS_Apps in development
+Maintainer: Ali Khan
 
-To build core docker container: `docker build [path_to_dockerfile]`
-To show docker containers available on machine: `docker images`
+
+khanlab/core:
+	Nipype, neurodebian (FSL/AFNI), niftyreg
+
+khanlab/vasst-dev: 
+	Sets up our vasst-dev repository
+
+To do:
+	-freesurfer versions
+	-ANTS/C3D
+	-camino
+	-NODDI/DKE (MCR)
+	-interactive version (itksnap, fslview fsleyes, 3d slicer, trackvis)?
+
+
+Running X from OSX Docker:
 
 First run XQuartz -> preferences, security -> allow connections from network clients, then run from a terminal:
 ~~~~
@@ -10,32 +26,4 @@ docker run -ti -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$ip:0 --rm -v ~/work/
 ~~~~
 
 
-Plan for dockerfile:
 
-from miykael/level4 (includes nipype FSL, AFNI, SPM12, ANTs & FreeSurfer)
--nilearn
--nibabel
--octave - niak
--dipy
--camino
--trackvis
--itksnap
--basic linux tools -
--niftyreg
-<pull vasst-dev repo> ...
-
-
-dev
-from core:
-<new stuff>
-
-
-Slicer - find good example
-from core:
--ITK, VTK
--3D slicer
-
-
-from core:
--matlab noddi
--matlab dke
