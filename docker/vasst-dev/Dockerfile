@@ -1,5 +1,5 @@
 #Ubuntu 16.04 LTS
-FROM khanlab:core
+FROM khanlab/core:0.0.1
 # vasst-dev set-up
 
 ENV VASST_DEV_HOME=$INSTALL/vasst-dev
