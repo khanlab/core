@@ -8,6 +8,9 @@ all: build
 build:
 	docker build -t $(NAME):$(VERSION) --rm .
 
+rebuild:
+	docker build -t $(NAME):$(VERSION) --rm . --no-cache
+
 tag_latest:
 	docker tag $(NAME):$(VERSION) $(NAME):latest
 
@@ -18,9 +21,7 @@ push_latest:
 	docker push $(NAME):latest
 
 run:
-	if [[ "$(docker images -q $(NAME):$(VERSION) 2> /dev/null)" == "" ]]; then
 	docker run --rm -it $(NAME):$(VERSION) /bin/bash	
-	fi
 
 last_built_date:
 	docker inspect -f '{{ .Created }}' $(NAME):$(VERSION)

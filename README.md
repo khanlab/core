@@ -1,5 +1,21 @@
-Docker containers and BIDS_Apps in development
-Maintainer: Ali Khan
+# Docker containers and BIDS_Apps in development
+## Maintainer: Ali Khan
+
+
+
+* apps/: BIDS-Apps for processing & analysis
+* docker/: standardized environments for development and apps
+* docker_templates/:  collection of useful Dockerfile templates from outside our group
+
+
+### Getting started:
+
+*  Building  folders with Dockerfiles can be built with make
+	make build
+	make run
+
+*  Docker Hub organization for khanlab has been created, admin users should be able to: make push
+
 
 
 khanlab/core:

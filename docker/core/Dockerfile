@@ -10,7 +10,7 @@ RUN apt-get update && \
     pip3 install ipython nibabel dipy nipype  matplotlib 
 
 
-# Install octave
+# Install octave & other linux deps
 RUN apt-get install --force-yes -y \
   bison \
   build-essential \
@@ -18,6 +18,7 @@ RUN apt-get install --force-yes -y \
   cmake-curses-gui \
   flex \  
   g++ \
+  git \
   graphviz \
   imagemagick \
   liboctave-dev \
@@ -27,7 +28,8 @@ RUN apt-get install --force-yes -y \
   libxmu-headers \
   libxmu6 \  
   unzip \
-  xpdf
+  xpdf \
+  wget
  
 
 #----- Neurodebian
@@ -47,6 +49,8 @@ RUN apt-get update && \
 # Installing Neurodebian packages (FSL, AFNI, git)
 RUN apt-get install -y --no-install-recommends \
                     fsl-core=5.0.9-1~nd+1+nd16.04+1 \
+		    fsl-atlases=5.0.7-2 \
+		    fsl-5.0-eddy-nonfree=5.0.9-1~nd16.04+1 \
                     afni=16.2.07~dfsg.1-2~nd16.04+1
 
 ENV FSL_DIR=/usr/share/fsl/5.0 \

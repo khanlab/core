@@ -1,4 +1,4 @@
-NAME = khanlab/core
+NAME = khanlab/itk
 VERSION = 0.0.1
 
 .PHONY: all build tag_latest push push_latest run last_built_date

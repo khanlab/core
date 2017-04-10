@@ -1,5 +1,7 @@
-FROM khanlab/vasst-dev
+FROM khanlab/vasst-dev:0.0.1
 
+#update vasst-dev repo 
+RUN cd $VASST_DEV_HOME && git pull && cd /
 
 ENV PYTHONPATH=""
 
