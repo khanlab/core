@@ -11,7 +11,8 @@ RUN apt-get update && \
 
 
 # Install octave & other linux deps
-RUN apt-get install --force-yes -y \
+#RUN apt-get install --force-yes -y \
+RUN apt-get update &&  apt-get install -y \
   bison \
   build-essential \
   cmake \
