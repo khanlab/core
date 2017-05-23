@@ -26,9 +26,9 @@ apt-get install  -y \
   libxmu6 \
   unzip \
   xpdf \
-  wget \ 
+  wget \
 curl \
-openjdk-9-jdk-headless \ 
+openjdk-9-jdk-headless \
 vim \
 bzip2 
 
