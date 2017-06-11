@@ -17,8 +17,10 @@ singularity create -s 50000 khanlab.img
 sudo singularity bootstrap khanlab.img Singularity
 ~~~~
 
-
-
+To pull the built image from singularity-hub, use (not yet tested):
+~~~~
+singularity pull shub://khanlab/core:latest
+~~~~
 ### Getting started (Docker):
 
 *  Building  folders with Dockerfiles can be built with make
