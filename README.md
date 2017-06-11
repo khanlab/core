@@ -12,8 +12,10 @@
 The install_deps.sh script will install each script in the dependencies folder, given a target path.
 Note that many of the scripts require a Debian-based linux distribution, has been only tested on Xenial Ubuntu.
 The Singularity file automates a singularity-hub build for khanlab/core, and call also be used from the command-line, e.g.:
-`singularity create -s 50000 khanlab.img`
-`sudo singularity bootstrap khanlab.img Singularity`
+~~~~
+singularity create -s 50000 khanlab.img
+sudo singularity bootstrap khanlab.img Singularity
+~~~~
 
 
 
