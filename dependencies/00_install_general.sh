@@ -8,6 +8,7 @@ exit 0
 fi
 
 #note: install folder is not used..
+apt-get update
 apt-get install  -y \
   bison \
   build-essential \
@@ -27,8 +28,8 @@ apt-get install  -y \
   unzip \
   xpdf \
   wget \
-curl \
-openjdk-9-jdk-headless \
-vim \
-bzip2 
+  curl \
+  openjdk-9-jdk-headless \
+  vim \
+  bzip2 
 
