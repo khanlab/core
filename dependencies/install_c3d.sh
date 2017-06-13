@@ -14,15 +14,10 @@ VERSION=c3d-1.1.0-Linux-x86_64
 C3D_DIR=$INSTALL/$VERSION
 mkdir -p $C3D_DIR
 
-pushd $INSTALL
 
-wget https://downloads.sourceforge.net/project/c3d/c3d/Experimental/$VERSION.tar.gz
-
-tar -xvzf $VERSION.tar.gz
-rm -f $VERSION.tar.gz
+curl -L --retry 5 https://downloads.sourceforge.net/project/c3d/c3d/Experimental/$VERSION.tar.gz | tar zx -C $INSTALL
 
 
-popd
 
 INIT=$INSTALL/init.d
 INIT_C3D=$INIT/c3d.sh
