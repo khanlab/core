@@ -14,7 +14,7 @@ VERSION=6.0.0
 pushd $INSTALL
 #if false
 #then
-wget  ftp://surfer.nmr.mgh.harvard.edu/pub/dist/freesurfer/$VERSION/freesurfer-Linux-centos6_x86_64-stable-pub-v${VERSION}.tar.gz
+wget -q ftp://surfer.nmr.mgh.harvard.edu/pub/dist/freesurfer/$VERSION/freesurfer-Linux-centos6_x86_64-stable-pub-v${VERSION}.tar.gz
 tar -xvzf freesurfer-Linux-centos6_x86_64-stable-pub-v$VERSION.tar.gz \
     --exclude='freesurfer/trctrain' \
     --exclude='freesurfer/subjects/fsaverage_sym' \
