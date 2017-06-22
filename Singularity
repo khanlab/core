@@ -3,11 +3,12 @@ From: ubuntu:xenial
 
 
 %setup
-cp -rv install_deps.sh dependencies $SINGULARITY_ROOTFS
+cp -rv install_*.sh dependencies $SINGULARITY_ROOTFS
 
 
 %post
-./install_deps.sh /opt
+./install_debian.sh /opt
+./install_general.sh /opt
 bash /opt/init.sh 
 
 

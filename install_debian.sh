@@ -10,7 +10,7 @@ fi
 
 INSTALL=$1
 
-for script in `ls dependencies/*`
+for script in `ls dependencies/debian/*.sh`
 do
 
 . $script $INSTALL
