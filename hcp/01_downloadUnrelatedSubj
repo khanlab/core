@@ -1,6 +1,6 @@
 #!/bin/bash
 
-hcp_dir=/project/akhanf/HCP_1200
+hcp_dir=/project/akhanf/projects/hcp/HCP_1200
 
 hcp_uri=s3://hcp-openaccess/HCP
 
@@ -14,8 +14,14 @@ aws s3 cp $hcp_uri/$list_name $hcp_dir/$list_name
 
 for subj in `cat $hcp_dir/$list_name`
 do
+	 
+  if [ ! -e $hcp_dir/$subj ]
+	  then
+
   echo aws s3 cp --recursive $hcp_uri/$subj $hcp_dir/$subj
   aws s3 cp --recursive $hcp_uri/$subj $hcp_dir/$subj
+  fi
+
 done
 
 

@@ -16,12 +16,12 @@ INIT=$INSTALL/init.d
 INIT_PYTHONDEPS=$INIT/pythondeps.sh
 mkdir -p $INIT
 
-pip install aws ipython nibabel dipy nipype matplotlib
+pip install --prefix=$PYTHONDEPS --no-cache-dir aws nibabel dipy nipype matplotlib
 
 #create init script
 echo "#/bin/bash" > $INIT_PYTHONDEPS
 echo "export PATH=\$PATH:$PYTHONDEPS/bin" >> $INIT_PYTHONDEPS
-echo "export PYTHONPATH=\$PYTHONPATH:$PYTHONDEPS/lib" >> $INIT_PYTHONDEPS
+echo "export PYTHONPATH=\$PYTHONPATH:$PYTHONDEPS/lib/python2.7/site-packages" >> $INIT_PYTHONDEPS
 
 
 
