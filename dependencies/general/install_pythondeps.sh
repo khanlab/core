@@ -16,7 +16,7 @@ INIT=$INSTALL/init.d
 INIT_PYTHONDEPS=$INIT/pythondeps.sh
 mkdir -p $INIT
 
-pip install --prefix=$PYTHONDEPS --no-cache-dir aws nibabel dipy nipype matplotlib
+pip install --prefix=$PYTHONDEPS --no-cache-dir awscli nibabel dipy nipype matplotlib
 
 #create init script
 echo "#/bin/bash" > $INIT_PYTHONDEPS
