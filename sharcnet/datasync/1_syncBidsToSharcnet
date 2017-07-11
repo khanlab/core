@@ -1,0 +1,21 @@
+#!/bin/bash
+
+in_data=~/khangrp/datasets-bids
+out_data=/project/akhanf/datasets-bids
+
+if [ "$#" -lt 1 ]
+then 
+ echo "Usage: $0 <project names..>"
+ echo ""
+ echo "e.g.:"
+ echo  "  " `ls $in_data`
+ echo ""
+ exit 0
+fi
+
+for project in $@
+do
+
+rsync -av $in_data/$project akhanf@graham.sharcnet.ca:$out_data
+
+done 

@@ -1,0 +1,24 @@
+#!/bin/bash
+
+for app in `cat list_apps`
+do
+
+ group=${app%%/*}
+ name=${app#*/}
+ name=${name%%:*}
+ tag=${app##*:}
+
+ echo $group / $name : $tag
+
+ tmpdir=/tmp/singularity$RANDOM
+
+ ./docker2singularity $app $tmpdir
+
+ out_img=`ls -tr $tmpdir/${group}_${name}_${tag}*.img | tail -n 1`
+
+ 
+ #copy to sharcnet
+ rsync --info=progress2 $out_img akhanf@graham.sharcnet.ca:/project/akhanf/singularity/${group}_${name}_${tag}.img
+
+
+done
