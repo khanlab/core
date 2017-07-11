@@ -1,0 +1,84 @@
+#!/bin/bash
+
+slurmopts="--time=36:00:00 --mem=16000 --account=rrg-akhanf"
+
+singularity_dir=/project/akhanf/singularity
+
+if [ "$#" -lt 4 ]
+then
+
+if [ "$#" == 1 ]
+then
+ singularity run -e $singularity_dir/$1
+ exit 0
+fi
+
+
+echo "Usage: $0 <app_img> <bids_dir> <output_dir> <participant/group>  <app options>"
+echo ""
+echo " List of apps: "
+ls $singularity_dir
+echo ""
+echo " Run with app name to get usage for particular app."
+echo ""
+exit 0
+fi
+
+app_img=$1
+bids_dir=$2
+out_dir=$3
+level=$4
+
+singularity_image=$singularity_dir/${app_img}
+image_name=${singularity_image##*/}
+image_name=${image_name%.*}
+
+
+shift 4
+options=$@
+
+#loop over participants
+list=$bids_dir/participants.tsv
+
+if [ ! -e $list ]
+then
+ echo "$list does not exist, quitting!"
+ exit 0
+fi
+
+
+out_submit_dir=jobs_${image_name}_`date +%Y_%m_%d_%-I%p`
+mkdir -p $out_submit_dir
+
+if [ "$level" = "participant" ]
+then
+	 
+for subjline in `grep "sub-" $list`
+
+do
+
+ subj=${subjline%%\	}
+ echo $subj
+
+
+ job=$out_submit_dir/$subj.sh
+ echo "#!/bin/bash" > $job
+ echo "singularity run -e -B /project:/project $singularity_image --participant_label=$subj $options $bids_dir $out_dir $level" >> $job
+ 
+  sbatch -J $subj.$image_name -D $out_submit_dir $slurmopts --output="$subj.slurm-%j.out" $job
+done
+
+else if [ "$level" = "group" ]
+then
+
+ #group level:
+ job=$out_submit_dir/group.sh
+ echo "#!/bin/bash" > $job
+ echo "singularity run -e -B /project:/project $singularity_image $options $bids_dir $out_dir $level" >> $job
+ 
+ sbatch -J group.$image_name -D $out_submit_dir $slurmopts --output="group.slurm-%j.out" $job
+
+
+fi
+
+fi

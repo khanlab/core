@@ -3,7 +3,7 @@ From: ubuntu:xenial
 
 
 %setup
-cp -rv install_*.sh dependencies $SINGULARITY_ROOTFS
+cp -rv install_general.sh install_debian.sh dependencies $SINGULARITY_ROOTFS
 
 
 %post
