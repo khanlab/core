@@ -1,5 +1,5 @@
 Bootstrap: docker
-From: ubuntu:xenial
+From: khanlab:neurodocker:0.0.1
 
 
 %setup
